@@ -1,0 +1,70 @@
+/* reset browser styling */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* general body styling */
+body {
+    font-family: 'amiri', serif;
+    background-color: burlywood;
+    color: #333;
+}
+
+/* centered heading styling */
+.heading {
+    margin: 20px 0;
+    font-family: 'lobster', cursive;
+    color: #0c1f3b;
+}
+
+/* container styling */
+.container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f5a8a8;
+}
+
+/* main section styling */
+.main {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* prevent text wrapping */
+.form-control {
+    white-space: nowrap;      
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px; ;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff  ;
+}
+
+.btn-primary.reset {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#finalAmount {
+    margin-top: 20px;
+}
+
+.finalValue {
+    color: green;
+    font-weight: bold;
+}
