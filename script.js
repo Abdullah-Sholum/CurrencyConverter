@@ -3,18 +3,18 @@ const api = "https://api.exchangerate-api.com/v4/latest/USD";
 
 // inisiasi & deklarasi variabel untuk komunikasi elemen dokumen dll
 let search = document.querySelector('.searchBox');        //akses class searchBox || remember querySelector memilih selector css di dokuman. bisa dengan class(.), id(#), elemen (div)
-let convert = document.querySelector('.convert');
-let formCurrecy = document.querySelector('.from');
-let toCurrecy = document.querySelector('.to');
-let finalValue = document.querySelector('.finalValue');
-let finalAmount = document.getElementById('finalAmount');
+let convert = document.querySelector(".convert");
+let fromCurrecy = document.querySelector(".from");
+let toCurrecy = document.querySelector(".to");
+let finalValue = document.querySelector(".finalValue");
+let finalAmount = document.getElementById("finalAmount");
 // deklarasi
 let resultFrom;
 let resultTo;
 let searchValue;
 
 //event listener saat currency berubah
-formCurrecy.addEventListener('change', (event) => {             //buat event handler 'change' kemudian buat fungsi event
+fromCurrecy.addEventListener('change', (event) => {             //buat event handler 'change' kemudian buat fungsi event
     resultFrom = `${event.target.value}`;           //bagian ini menginisiasi ketika event handler dari fromCurrecy berubah makan nilai akan disimpan
 });
 
@@ -31,10 +31,10 @@ function updateValue(e) {
 }
 
 //event listener untuk summon getResult
-convert.addEventListener("click", getresult);
+convert.addEventListener("click", getResults);
 
 //fungsi getResult
-function getResult() {
+function getResults() {
     fetch(`${api}`)
         .then(currency => {
             return currency.json();
