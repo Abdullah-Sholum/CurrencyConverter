@@ -19,7 +19,7 @@ fromCurrecy.addEventListener('change', (event) => {             //buat event han
 });
 
 //event listener saat currency berubah 2
-toCurrecy.addEventListener('change', (event) => {
+toCurrecy.addEventListener('change', (event) => {               
     resultTo = `${event.target.value}`;
 });
 
@@ -35,23 +35,23 @@ convert.addEventListener("click", getResults);                  //tambah event h
 
 //fungsi getResult
 function getResults() {                             //buat fungsi 
-    fetch(`${api}`)                                 //summon request terhadap api
-        .then(currency => {                         //menerima fungsi callback dengan parameter curency yang merupakan respon API
-            return currency.json();                 //metode JSON() dipanggil untuk object currency, disini di respon json dirubah menjadi object
-        }).then(displayResult);                     //menerima object JSON yang telah diurai menjadi argumen dan memanggil fungsi display result
+    fetch(`${api}`)                                 //summon request terhadap api           || panggil api
+        .then(currency => {                         //menerima respon API dan mengoper ke fungsi callback dengan parameter currency
+            return currency.json();                 //panggil metode JSON() pada object currency untuk mengurai respon JSON menjadi object JawaScript
+        }).then(displayResult);                     //menerima object JSON yang telah diurai menjadi argumen dan memanggil fungsi display result    || tampilkan dengan fungsi display result
 }
 
 //fungsi display sesudah di konversi
-function displayResult(currency) {
-    let fromRate = currency.rates[resultFrom];
-    let toRate = currency.rates[resultTo];
-    finalValue.innerHTML = 
-        ((toRate / fromRate) * searchValue).toFixed(2);
+function displayResult(currency) {                  //buat fungsi  dengan argumen currency
+    let fromRate = currency.rates[resultFrom];      //inisiasi dengan rates currency yang diindex dari resultFrom
+    let toRate = currency.rates[resultTo];          //inisiasi dengan rates currency yang diindex dari resultTo
+    finalValue.innerHTML =                          //atur elemen html finalValue dengan
+        ((toRate / fromRate) * searchValue).toFixed(2); //(toRate / fromRate) * searchValue. kemudian atur perhitungan menjadi string yang memiliki 2 angka desimal
     finalAmount.style.display = "block";
 }
 
 //fungsi reset btn
-function clearVal() {
-    window.location.reload();
-    document.getElementsByClassName("finalValue").innerHTML = "";
+function clearVal() {                               //buat fungsi
+    window.location.reload();                       //memuat ulang halaman / refresh
+    document.getElementsByClassName("finalValue").innerHTML = ""; //mengkosongkan finalValue
 }
